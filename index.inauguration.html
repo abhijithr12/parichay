@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Curtain Opening Effect</title>
+    <style>
+        body {
+            background-image:url("background.jpg");
+            background-color: #f4f4f4;
+            color: #333333;
+            font-family: 'Poppins', sans-serif;
+            text-align: center;
+        }
+        .stage {
+            position: relative;
+            width: 100vw;
+            height: 100vh;
+            overflow: hidden;
+        }
+        .curtain {
+            position: absolute;
+            top: 0;
+            width: 50%;
+            height: 100%;
+            background-color: #005f73;
+            z-index: 2;
+            transition: all 2s ease-in-out;
+            background-image: radial-gradient(circle, #005f73, #04404b 60%);
+            background-size: 200% 200%;
+            animation: waveEffect 4s infinite;
+            box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.5);
+        }
+        @keyframes waveEffect {
+            0% {
+                background-position: 0% 50%;
+            }
+            50% {
+                background-position: 100% 50%;
+            }
+            100% {
+                background-position: 0% 50%;
+            }
+        }
+        .left-curtain {
+            left: 0;
+            border-right: 2px solid #04404b;
+        }
+        .right-curtain {
+            right: 0;
+            border-left: 2px solid #04404b;
+        }
+        .stage.open .left-curtain {
+            transform: translateX(-100%);
+        }
+        .stage.open .right-curtain {
+            transform: translateX(100%);
+        }
+        .content {
+            position: absolute;
+            z-index: 1;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 2rem;
+        }
+        button {
+            position: absolute;
+            top: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 3;
+            padding: 10px 20px;
+            font-size: 1rem;
+            cursor: pointer;
+        }
+        header {
+            background: linear-gradient(90deg, #005f73, #0a9396);
+            padding: 50px;
+            border-radius: 10px;
+            margin: 20px;
+            box-shadow: 0 0 15px rgba(0, 95, 115, 0.5);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            position: relative;
+        }
+        .nav {
+            display: flex;
+            justify-content: space-between; 
+            align-items: center; 
+            background-color: #e9ecef;
+            padding: 10px;
+            border-radius: 5px;
+        }
+        .nav a {
+            color: #005f73;
+            text-decoration: none;
+            font-size: 18px;
+            margin-right: 15px;
+            font-weight: bold;
+        }
+        .nav a:hover {
+            color: #0a9396;
+        }
+        section {
+            background: #ffffff;
+            padding: 20px;
+            margin: 10px auto;
+            border-radius: 10px;
+            box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.1);
+            max-width: 800px;
+        }
+        section:hover {
+            transform: scale(1.02);
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+        }
+        .logo1 {
+            width: 250px;
+            height: auto;
+            position: absolute;
+            top: 10px;
+        }
+        h1 {
+            background: linear-gradient(90deg, #ffffff, #ffffff);
+            background-clip: text;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            font-size: 55px;
+            font-family: 'Pixel Operator', monospace;
+            font-weight: bold;
+            align-content: center;
+        }
+        h2, h3 {
+            font-family: 'Poppins', sans-serif;
+            color: #005f73;
+        }
+        p {
+            font-family: 'Poppins', sans-serif;
+            color: #333333;
+            text-align: justify;
+        }
+        .button {
+            background: linear-gradient(90deg, #0b5261, #05a792);
+            padding: 10px 20px;
+            border: none;
+            color: white;
+            font-weight: bold;
+            border-radius: 5px;
+            cursor: pointer;
+            box-shadow: 0 0 10px rgba(0, 95, 115, 0.5);
+            transition: 0.3s;
+        }
+        .button:hover {
+            transform: scale(1.1);
+            box-shadow: 0 0 20px rgba(0, 95, 115, 0.7);
+        }
+        footer {
+            background: #005f73;
+            padding: 10px;
+            margin-top: 20px;
+            border-radius: 10px;
+            color: white;
+        }
+        
+        
+    </style>
+</head>
+<body>
+    <div class="stage" id="stage">
+        <div class="curtain left-curtain"></div>
+        <div class="curtain right-curtain"></div>
+        <button id="inaugurateButton" onclick="openCurtains(); this.style.display='none';" style="background: linear-gradient(90deg, #0b5261, #05a792); position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); border-radius: 15px; color: #f4f4f4;">INAUGURATE</button>
+        <div class="content"><h2>Welcome to PARICHAY 3.0</h2></div>
+        </div>
+        
+        
+      
+        
+    
+
+    <script>
+        function openCurtains() {
+            const stage = document.getElementById('stage').classList.add('open');
+            setTimeout(() => {
+                window.location.href = 'index.html'; // Replace with your target page URL
+            }, 3000); // Matches the curtain animation duration (2 seconds)
+        }
+    </script>
+</body>
+</html>
